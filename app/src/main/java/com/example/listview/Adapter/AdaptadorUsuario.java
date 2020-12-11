@@ -26,9 +26,9 @@ public class AdaptadorUsuario extends ArrayAdapter<Usuario> {
         TextView lblemail = (TextView)item.findViewById(R.id.lblEmail);
         TextView lblweb = (TextView)item.findViewById(R.id.lblweb);
 
-        lblNombre.setText(getItem(position).getCountry());
-        lblemail.setText(getItem(position).getNewConfirmed());
-        lblweb.setText(getItem(position).getTotalConfirmed());
+        lblNombre.setText(getItem(position).getNombre());
+        lblemail.setText(getItem(position).getEmail());
+        lblweb.setText(getItem(position).getWebsite());
 
         return(item);
     }

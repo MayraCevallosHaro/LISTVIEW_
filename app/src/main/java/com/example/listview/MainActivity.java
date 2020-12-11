@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask
         lstOpciones.addHeaderView(header);
 
         Map<String, String> datos = new HashMap<String, String>();
-        WebService ws= new WebService("https://api.covid19api.com/summary",
+        WebService ws= new WebService("https://reqres.in/api/users",
                 datos, MainActivity.this, MainActivity.this);
         ws.execute("GET");
 

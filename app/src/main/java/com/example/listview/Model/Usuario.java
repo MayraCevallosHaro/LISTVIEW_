@@ -7,44 +7,56 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-    private String Country;
-    private String NewConfirmed;
-    private String TotalConfirmed;
+    private String nombres;
+    private String email;
+    private String website;
 
-    public String getCountry() {
-        return Country;
+    public String getNombre() {
+        return nombres;
     }
 
-    public String getNewConfirmed() {
-        return NewConfirmed;
+    public String getEmail() {
+        return email;
     }
 
-    public String getTotalConfirmed() {
-        return TotalConfirmed;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setCountry(String country) {
-        this.Country = country;
+    public void setNombre(String nombre) {
+        this.nombres = nombre;
     }
 
-    public void setNewConfirmed(String newconfirmed) {
-        this.NewConfirmed = newconfirmed;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setTotalConfirmed(String totalconfirmed) {
-        this.TotalConfirmed = totalconfirmed;
+    public void setWebsite(String website) {
+        this.website = website;
     }
+
+    public void setUrlavatar(String urlavatar) {
+        this.urlavatar = urlavatar;
+    }
+
+    public String getUrlavatar() {
+        return urlavatar;
+    }
+
+    private String urlavatar;
 
 
     public Usuario(JSONObject a) throws JSONException {
-        Country =  a.getString("Country").toString();
-        NewConfirmed =  a.getString("NewConfirmed").toString() ;
-        TotalConfirmed =  a.getString("TotalConfirmed").toString() ;
+        nombres =  a.getString("first_name").toString() + " " + a.getString("last_name").toString();
+
+        email =  a.getString("email").toString() ;
+        website =  a.getString("avatar").toString() ;
+        urlavatar = a.getString("avatar").toString() ;
 
 
     }
 
-    public static ArrayList<Usuario> JsonObjectsBuild(JSONArray datos) throws JSONException {
+    public static  ArrayList<Usuario> JsonObjectsBuild(JSONArray datos) throws JSONException {
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
         for (int i = 0; i < datos.length() && i<20; i++) {
